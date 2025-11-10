@@ -27,7 +27,12 @@ const Register = () => {
         toast.success("Register successfully");
       })
       .catch((e) => {
-        toast.error(e.message);
+        console.log(e.code);
+        if (e.code == "auth/email-already-in-use") {
+          toast.error("user allready in database");
+        } else {
+          toast.error(e.message);
+        }
       });
   };
   return (
