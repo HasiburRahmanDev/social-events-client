@@ -34,11 +34,17 @@ const Register = () => {
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Register</h1>
+          <h1 className="text-5xl font-bold">Create your account</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Welcome to Social Events, your go-to platform for discovering,
+            organizing, and connecting through meaningful events. Whether you’re
+            planning a community gathering, a corporate meetup, or a cultural
+            celebration, our platform helps you bring people together
+            effortlessly. Explore upcoming events, connect with organizers, and
+            share unforgettable experiences with others who share your passions.
+            With easy event management tools and a vibrant community, Social
+            Events makes it simple to stay engaged, inspired, and connected —
+            all in one place.
           </p>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

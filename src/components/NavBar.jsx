@@ -76,7 +76,7 @@ const NavBar = () => {
               <a>Manage Events</a>
             </li>
             <li>
-              <NavLink>Login</NavLink>
+              <NavLink to={"/login"}>Login</NavLink>
             </li>
             <li>
               <NavLink to="/register">Register</NavLink>
