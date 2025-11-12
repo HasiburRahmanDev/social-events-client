@@ -1,5 +1,7 @@
 import React from "react";
 import Banner from "../components/Banner";
+import Newsletter from "../components/NewsLetter";
+import EventsGallery from "../components/EventsGallery";
 
 const Home = () => {
   return (
@@ -9,10 +11,13 @@ const Home = () => {
         <div className="hero-content flex-col lg:flex-row">
           <div>
             <h1 className="text-5xl font-bold">
-              <span className="text-red-600">a community-driven</span> <br />{" "}
+              <span className="text-red-600">A community-driven</span> <br />{" "}
               event management <br /> platform where <br />{" "}
-              <span className="text-blue-600">users can create</span>, join,{" "}
-              <br /> and track social service <br /> events in their local area.
+              <span className="text-blue-600">you can </span>,
+              <span className="text-red-600">create</span>{" "}
+              <span className="text-green-600">Join</span>, <br /> and{" "}
+              <span className="text-red-600">track</span> social service <br />{" "}
+              events in your local area.
             </h1>
             <p className="py-6">
               Participants can browse events based on their interests or <br />
@@ -30,6 +35,8 @@ const Home = () => {
           />
         </div>
       </div>
+      <EventsGallery></EventsGallery>
+      <Newsletter></Newsletter>
     </div>
   );
 };
