@@ -1,9 +1,35 @@
 import React from "react";
+import Banner from "../components/Banner";
 
 const Home = () => {
   return (
     <div>
-      <h1 className="Btn text-5xl">HomePage</h1>
+      <Banner></Banner>
+      <div className="hero bg-base-200 min-h-screen">
+        <div className="hero-content flex-col lg:flex-row">
+          <div>
+            <h1 className="text-5xl font-bold">
+              <span className="text-red-600">a community-driven</span> <br />{" "}
+              event management <br /> platform where <br />{" "}
+              <span className="text-blue-600">users can create</span>, join,{" "}
+              <br /> and track social service <br /> events in their local area.
+            </h1>
+            <p className="py-6">
+              Participants can browse events based on their interests or <br />
+              location, register with a single click, and monitor their <br />
+              volunteer hours <br /> and contributions. By combining technology
+              with <br />
+              community spirit, <br />
+              the platform transforms local engagement into a <br />
+              seamless and rewarding experience.
+            </p>
+          </div>
+          <img
+            src="https://i.pinimg.com/736x/4b/9a/0c/4b9a0c0e54e8c9d8e730f43ab6248739.jpg"
+            className="max-w-fit rounded-lg shadow-2xl"
+          />
+        </div>
+      </div>
     </div>
   );
 };
