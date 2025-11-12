@@ -1,16 +1,25 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
-import { auth } from "../firebase.init";
+import React, { useContext, useState } from "react";
+import {} from "../firebase.init";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
+import { AuthContext } from "../context/AuthContext";
+import { NavLink, useNavigate } from "react-router";
 
 const Register = () => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const {
+    createUserWithEmailAndPasswordFunc,
+    updateProfileFunc,
+    signOutFunc,
+    setUser,
+  } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
 
-    // const name = e.target.name.value;
+    const displayName = e.target.displayName.value;
+    const photoURL = e.target.photoURL.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
@@ -21,10 +30,21 @@ const Register = () => {
       );
       return;
     }
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPasswordFunc(email, password)
       .then((result) => {
         console.log(result);
-        toast.success("Register successfully");
+        updateProfileFunc(displayName, photoURL).then((result) => {
+          console.log(result);
+        });
+        signOutFunc()
+          .then(() => {
+            toast.success("Register successfully");
+            setUser(null);
+            navigate("/login");
+          })
+          .catch((e) => {
+            toast.error(e.message);
+          });
       })
       .catch((e) => {
         console.log(e.code);
@@ -58,7 +78,7 @@ const Register = () => {
               <fieldset className="fieldset relative">
                 <label className="label">name</label>
                 <input
-                  name="name"
+                  name="displayName"
                   type="text"
                   className="input"
                   placeholder="name"
@@ -91,7 +111,11 @@ const Register = () => {
                   {show ? <FaEye /> : <IoEyeOff />}
                 </span>
                 <div>
-                  <a className="link link-hover">Have an account?</a>
+                  <NavLink to="/login">
+                    <a className="link link-hover text-blue-700">
+                      Have an account?
+                    </a>
+                  </NavLink>
                 </div>
                 <button className="btn btn-neutral mt-4">Register</button>
               </fieldset>
