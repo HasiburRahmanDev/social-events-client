@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import EventDate from "../components/EventDate";
 import DatePicker from "react-datepicker";
 
 const CreateEvents = () => {
@@ -7,8 +6,24 @@ const CreateEvents = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const eventData = {
+      title: e.target.title.value,
+      description: e.target.description.value,
+      eventType: e.target.eventType.value,
+      thumbnailUrl: e.target.thumbnailUrl.value,
+      location: e.target.location.value,
+      eventDate: e.target.eventDate.value,
+    };
 
-    console.log("Form submitted");
+    console.log(eventData);
+
+    fetch("http://localhost:3000/events", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(eventData),
+    });
   };
 
   return (
@@ -20,6 +35,7 @@ const CreateEvents = () => {
 
       {/* Title */}
       <input
+        name="title"
         type="text"
         placeholder="Event Title"
         className="w-full mb-4 px-4 py-2 border rounded"
@@ -28,6 +44,7 @@ const CreateEvents = () => {
 
       {/* Description */}
       <textarea
+        name="description"
         placeholder="Event Description"
         className="w-full mb-4 px-4 py-2 border rounded"
         rows={4}
@@ -35,7 +52,11 @@ const CreateEvents = () => {
       />
 
       {/* Event Type Dropdown */}
-      <select className="w-full mb-4 px-4 py-2 border rounded" required>
+      <select
+        name="eventType"
+        className="w-full mb-4 px-4 py-2 border rounded"
+        required
+      >
         <option value="">Select Event Type</option>
         <option value="Cleanup">Cleanup</option>
         <option value="Plantation">Plantation</option>
@@ -44,6 +65,7 @@ const CreateEvents = () => {
 
       {/* Thumbnail Image URL */}
       <input
+        name="thumbnailUrl"
         type="url"
         placeholder="Thumbnail Image URL"
         className="w-full mb-4 px-4 py-2 border rounded"
@@ -52,6 +74,7 @@ const CreateEvents = () => {
 
       {/* Location */}
       <input
+        name="location"
         type="text"
         placeholder="Event Location"
         className="w-full mb-4 px-4 py-2 border rounded"
@@ -61,6 +84,7 @@ const CreateEvents = () => {
       {/* Event Date */}
       <label className="block mb-2 font-medium">Event Date</label>
       <DatePicker
+        name="eventDate"
         selected={eventDate}
         onChange={(date) => setEventDate(date)}
         dateFormat="yyyy-MM-dd"

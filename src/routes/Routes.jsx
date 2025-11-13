@@ -7,6 +7,7 @@ import PrivateRoute from "../privateRoute/PrivateRoute";
 import Profile from "../pages/Profile";
 import About from "../pages/About";
 import CreateEvents from "../ServerEvents.jsx/CreateEvents";
+import UpcomingEvents from "../components/UpcomingEvents";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,11 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         Component: Login,
+      },
+      {
+        path: "/upcoming-events",
+        Component: UpcomingEvents,
+        loader: () => fetch("http://localhost:3000/events"),
       },
       {
         path: "/profile",

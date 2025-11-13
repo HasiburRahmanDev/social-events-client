@@ -2,7 +2,7 @@ import React from "react";
 
 const EventsGallery = () => {
   return (
-    <div className="flex gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
       <div className="card bg-base-100 w-96 shadow-sm">
         <figure>
           <img

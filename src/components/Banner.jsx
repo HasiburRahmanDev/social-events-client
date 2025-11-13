@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router";
 
 const Banner = () => {
   return (
@@ -25,7 +26,9 @@ const Banner = () => {
             anyone can organize an event, invite volunteers, and share updates
             in real time.
           </p>
-          <button className="btn btn-primary">Upcoming Events</button>
+          <NavLink to="/upcoming-events">
+            <button className="btn btn-primary">Upcoming Events</button>
+          </NavLink>
         </div>
       </div>
     </div>

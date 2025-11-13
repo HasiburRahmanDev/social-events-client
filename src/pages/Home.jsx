@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200 min-h-screen ">
         <div className="hero-content flex-col lg:flex-row">
           <div>
             <h1 className="text-5xl font-bold">
@@ -29,10 +29,12 @@ const Home = () => {
               seamless and rewarding experience.
             </p>
           </div>
-          <img
-            src="https://i.pinimg.com/736x/4b/9a/0c/4b9a0c0e54e8c9d8e730f43ab6248739.jpg"
-            className="max-w-fit rounded-lg shadow-2xl"
-          />
+          <div>
+            <img
+              src="https://i.pinimg.com/736x/4b/9a/0c/4b9a0c0e54e8c9d8e730f43ab6248739.jpg"
+              className="md:max-w-fit rounded-lg shadow-2xl"
+            />
+          </div>
         </div>
       </div>
       <EventsGallery></EventsGallery>
