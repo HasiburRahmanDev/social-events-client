@@ -1,9 +1,17 @@
 import React from "react";
+import { NavLink } from "react-router";
 
 const EventCard = ({ event }) => {
   console.log(event);
-  const { title, description, eventType, thumbnailUrl, location, eventDate } =
-    event;
+  const {
+    title,
+    description,
+    eventType,
+    thumbnailUrl,
+    location,
+    eventDate,
+    _id,
+  } = event;
   return (
     <div className="max-w-sm bg-white rounded-lg shadow-md overflow-hidden">
       {/* Thumbnail */}
@@ -55,9 +63,11 @@ const EventCard = ({ event }) => {
         </p>
 
         {/* Button */}
-        <button className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition">
-          View Event
-        </button>
+        <NavLink to={`/event-details/${_id}`}>
+          <button className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+            View Event
+          </button>
+        </NavLink>
       </div>
     </div>
   );

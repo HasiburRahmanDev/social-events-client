@@ -8,6 +8,7 @@ import Profile from "../pages/Profile";
 import About from "../pages/About";
 import CreateEvents from "../ServerEvents.jsx/CreateEvents";
 import UpcomingEvents from "../components/UpcomingEvents";
+import EventDetails from "../pages/EventDetails";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,12 @@ export const router = createBrowserRouter([
         path: "/upcoming-events",
         Component: UpcomingEvents,
         loader: () => fetch("http://localhost:3000/events"),
+      },
+      {
+        path: "/event-details/:id",
+        Component: EventDetails,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/events/${params.id}`),
       },
       {
         path: "/profile",

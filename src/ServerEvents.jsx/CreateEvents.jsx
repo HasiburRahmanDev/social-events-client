@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const CreateEvents = () => {
   const [eventDate, setEventDate] = useState(null);
+  const navigation = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +30,8 @@ const CreateEvents = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        toast.success("Event created successfully");
+        navigation("/upcoming-events");
       })
       .catch((error) => {
         console.log(error);
