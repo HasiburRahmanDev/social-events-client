@@ -9,6 +9,8 @@ import About from "../pages/About";
 import CreateEvents from "../ServerEvents.jsx/CreateEvents";
 import UpcomingEvents from "../components/UpcomingEvents";
 import EventDetails from "../pages/EventDetails";
+import ManageEvents from "../pages/ManageEvents";
+import JoinedEvent from "../pages/JoinedEvent";
 
 export const router = createBrowserRouter([
   {
@@ -59,6 +61,22 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <CreateEvents />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manage-events",
+        element: (
+          <PrivateRoute>
+            <ManageEvents />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/joined-events",
+        element: (
+          <PrivateRoute>
+            <JoinedEvent />
           </PrivateRoute>
         ),
       },

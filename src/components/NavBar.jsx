@@ -94,10 +94,10 @@ const NavBar = () => {
                 </NavLink>
               </li>
               <li>
-                <a>Manage Events</a>
+                <NavLink to="/manage-events">Manage Events</NavLink>
               </li>
               <li>
-                <a>Joined Events</a>
+                <NavLink to="/joined-events">Joined Events</NavLink>
               </li>
               <li>
                 <NavLink to="/">
