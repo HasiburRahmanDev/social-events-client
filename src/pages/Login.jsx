@@ -2,7 +2,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import React, { useState, useContext } from "react";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
-import { NavLink } from "react-router";
+import { Navigate, NavLink } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 
