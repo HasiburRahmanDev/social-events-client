@@ -23,7 +23,14 @@ const CreateEvents = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(eventData),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
