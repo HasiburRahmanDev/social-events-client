@@ -1,5 +1,6 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { NavLink, useLoaderData } from "react-router";
+import { toast } from "react-toastify";
 
 const EventDetails = () => {
   const data = useLoaderData();
@@ -15,6 +16,10 @@ const EventDetails = () => {
     eventDate,
     _id,
   } = event;
+
+  const handleJoin = (e) => {
+    toast.success("Joined successfully");
+  };
   return (
     <div className="my-12 flex justify-center items-center">
       <div className="max-w-lg bg-white rounded-lg shadow-md">
@@ -68,9 +73,19 @@ const EventDetails = () => {
 
           {/* Button */}
 
-          <button className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition">
-            Join Event
-          </button>
+          <div className="flex justify-between gap-2">
+            <button
+              onClick={handleJoin}
+              className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+            >
+              Join Event
+            </button>
+            <NavLink to={`/manage-events/${event._id}}`}>
+              <button className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition">
+                Update Event
+              </button>
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>

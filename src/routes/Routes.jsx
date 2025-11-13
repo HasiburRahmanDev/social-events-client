@@ -73,6 +73,16 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/manage-events/:id",
+        element: (
+          <PrivateRoute>
+            <ManageEvents />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/events/${params.id}`),
+      },
+      {
         path: "/joined-events",
         element: (
           <PrivateRoute>

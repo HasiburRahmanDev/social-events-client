@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { AuthContext } from "../context/AuthContext";
 
 const CreateEvents = () => {
+  const { user } = use(AuthContext);
   const [eventDate, setEventDate] = useState(null);
   const navigation = useNavigate();
 
@@ -16,6 +18,7 @@ const CreateEvents = () => {
       thumbnailUrl: e.target.thumbnailUrl.value,
       location: e.target.location.value,
       eventDate: e.target.eventDate.value,
+      created_by: user.email,
     };
 
     console.log(eventData);
