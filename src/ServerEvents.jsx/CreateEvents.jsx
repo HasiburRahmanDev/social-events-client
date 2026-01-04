@@ -23,7 +23,7 @@ const CreateEvents = () => {
 
     console.log(eventData);
 
-    fetch("http://localhost:3000/events", {
+    fetch("https://social-event-server-zeta.vercel.app/events", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

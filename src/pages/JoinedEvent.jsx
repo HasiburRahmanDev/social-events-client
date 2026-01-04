@@ -6,7 +6,9 @@ const JoinedEvent = () => {
   const { user } = use(AuthContext);
   const [event, setEvent] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/joined-events?email=${user.email}`)
+    fetch(
+      `https://social-event-server-zeta.vercel.app/joined-events?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

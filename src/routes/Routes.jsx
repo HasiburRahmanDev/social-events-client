@@ -32,13 +32,16 @@ export const router = createBrowserRouter([
       {
         path: "/upcoming-events",
         Component: UpcomingEvents,
-        loader: () => fetch("http://localhost:3000/events"),
+        loader: () =>
+          fetch("https://social-event-server-zeta.vercel.app/events"),
       },
       {
         path: "/event-details/:id",
         Component: EventDetails,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/events/${params.id}`),
+          fetch(
+            `https://social-event-server-zeta.vercel.app/events/${params.id}`
+          ),
       },
       {
         path: "/profile",
@@ -80,7 +83,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/events/${params.id}`),
+          fetch(
+            `https://social-event-server-zeta.vercel.app/events/${params.id}`
+          ),
       },
       {
         path: "/joined-events",
